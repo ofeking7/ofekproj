@@ -12,7 +12,7 @@ public class first extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-3333
+
         setContentView(R.layout.activity_first);
 
     }
