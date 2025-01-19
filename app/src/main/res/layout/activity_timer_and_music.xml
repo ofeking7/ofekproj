@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/backkkk" >
+
+    <TextView
+        android:id="@+id/textViewSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewTestDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Date: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:textSize="30sp"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/buttonStartTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Timer and Music"
+        android:layout_marginTop="30dp"/>
+</LinearLayout>
