@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_test"
+        android:icon="@drawable/test"
+        android:title="Test" />
+    <item
+        android:id="@+id/navigation_create"
+        android:icon="@drawable/create"
+        android:title="Create" />
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/notifications"
+        android:title="Notifications" />
+</menu>

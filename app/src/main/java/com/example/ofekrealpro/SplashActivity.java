@@ -1,11 +1,18 @@
 package com.example.ofekrealpro;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.VideoView;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,17 +31,27 @@ public class SplashActivity extends AppCompatActivity {
         // Add listener to detect when the video ends
         videoView.setOnCompletionListener(mp -> {
             // Navigate to MainActivity after the video ends
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, loginS.class);
             startActivity(intent);
             finish();
         });
 
         // Handle case where the user skips the splash screen (optional)
         videoView.setOnErrorListener((mp, what, extra) -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, loginS.class);
             startActivity(intent);
             finish();
             return true;
         });
+    }
+
+    public static class musicscreen extends AppCompatActivity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            EdgeToEdge.enable(this);
+            setContentView(R.layout.activity_musicscreen);
+        }
     }
 }

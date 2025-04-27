@@ -14,28 +14,44 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ofekrealpro"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".FutureTestsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".addTest"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".loginS"
+            android:exported="false" />
+        <activity
+            android:name=".MusicScreen"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity$musicscreen"
+            android:exported="false" />
+        <activity
+            android:name=".StopwatchActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Main Activity -->
+        </activity> <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
-
-        <!-- Other Activities -->
+            android:exported="true" /> <!-- Other Activities -->
         <activity
             android:name=".first"
-            android:exported="false" />
-        <activity
-            android:name=".TimerAndMusicActivity"
             android:exported="false" />
     </application>
 

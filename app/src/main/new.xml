@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+   android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp">
+
+    <TextView android:id="@+id/titleTextView" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Title"
+        android:textAppearance="?attr/textAppearanceHeadline6" />
+
+    <TextView android:id="@+id/descriptionTextView" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:text="Description"
+        android:textAppearance="?attr/textAppearanceBody2" />
+
+</LinearLayout>
