@@ -2,4 +2,19 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary_color">#1E88E5</color>
+    <color name="primary_dark_color">#1565C0</color>
+    <color name="accent_color">#FF5722</color>
+    <color name="background_color">#F5F5F5</color>
+    <color name="primary_text_color">#212121</color>
+    <color name="secondary_text_color">#757575</color>
+    <color name="outline_color">#BDBDBD</color>
+    <color name="success_color">#4CAF50</color>
+    <color name="error_color">#F44336</color>
+
+    <!-- Additional colors for the timer layout -->
+    <color name="background_primary">@color/background_color</color>
+    <color name="card_background">@color/white</color>
+    <color name="text_primary">@color/primary_text_color</color>
+    <color name="text_secondary">@color/secondary_text_color</color>
 </resources>

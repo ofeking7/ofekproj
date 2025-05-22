@@ -1,76 +1,55 @@
 package com.example.ofekrealpro;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.Spinner;
+import android.widget.TimePicker;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Spinner spinnerSubjects;
-    private DatePicker datePicker;
-    private MediaPlayer mediaPlayer;
+    private TimePicker timePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        spinnerSubjects = findViewById(R.id.spinnerSubjects);
-        datePicker = findViewById(R.id.datePicker);
-        Button buttonStartTest = findViewById(R.id.buttonStartTest);
+        timePicker = findViewById(R.id.time_picker);
+        Button setAlarmButton = findViewById(R.id.set_alarm_button);
 
-        // Set up the spinner with subject options
-        String[] subjects = {
-                "Math", "Science", "History", "English", "Art", "Music",
-                "Geography", "Physics", "Chemistry", "Biology", "Computer Science",
-                "Economics", "Literature", "Philosophy", "Drama", "Psychology",
-                "Sociology", "Political Science", "Law"
-        };
+        setAlarmButton.setOnClickListener(view -> {
+            int hour = timePicker.getHour();
+            int minute = timePicker.getMinute();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, subjects
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerSubjects.setAdapter(adapter);
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, hour);
+            calendar.set(Calendar.MINUTE, minute);
+            calendar.set(Calendar.SECOND, 0);
 
-        // Button click logic
-        buttonStartTest.setOnClickListener(v -> {
-            // Play click sound
-            if (mediaPlayer == null) {
-          //      mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.button_click); // put your sound in res/raw/
+            // If the time is before current time, set it for next day
+            if (calendar.getTimeInMillis() <= System.currentTimeMillis()) {
+                calendar.add(Calendar.DAY_OF_YEAR, 1);
             }
-          //  mediaPlayer.start();
 
-            // Get selected subject and date
-            String selectedSubject = spinnerSubjects.getSelectedItem().toString();
-            int year = datePicker.getYear();
-            int month = datePicker.getMonth(); // 0-based
-            int day = datePicker.getDayOfMonth();
+            Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                    MainActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
-            // Format date properly
-            String formattedMonth = String.format("%02d", month + 1);
-            String formattedDay = String.format("%02d", day);
-            String testDate = year + "-" + formattedMonth + "-" + formattedDay;
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-            // Start next activity and pass data
-            Intent intent = new Intent(MainActivity.this, MusicScreen.class);
-            intent.putExtra("selectedSubject", selectedSubject);
-            intent.putExtra("testDate", testDate);
-            startActivity(intent);
+            if (alarmManager != null) {
+                alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+                // Show confirmation message
+                String time = String.format("%02d:%02d", hour, minute);
+                Toast.makeText(this, "Alarm set for " + time, Toast.LENGTH_SHORT).show();
+            }
         });
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
     }
 }

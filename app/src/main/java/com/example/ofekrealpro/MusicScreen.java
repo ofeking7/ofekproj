@@ -3,6 +3,7 @@ package com.example.ofekrealpro;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,14 @@ public class MusicScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_musicscreen);
+
+        Button btnGoBack = findViewById(R.id.btnGoBack);
+        btnGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // Buttons for music
         Button buttonPlaySong1 = findViewById(R.id.buttonPlaySong1);

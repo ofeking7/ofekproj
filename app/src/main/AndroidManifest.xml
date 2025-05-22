@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- Existing permission -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Additional permissions for alarms -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,29 +20,37 @@
         android:theme="@style/Theme.Ofekrealpro"
         tools:targetApi="31">
         <activity
-            android:name=".Register"
+            android:name=".MainActivity1"
             android:exported="false" />
+        <!-- Register the BroadcastReceiver with proper attributes -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false" /> <!-- Activities -->
+        <activity
+            android:name=".MyApplication"
+            android:exported="false" />
+        <activity
+            android:name=".AddTestActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Register"
+            android:exported="true" />
         <activity
             android:name=".FutureTestsFragment"
-            android:exported="false" />
-        <activity
-            android:name=".addTest"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".loginS"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MusicScreen"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity$musicscreen"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".StopwatchActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -46,13 +59,13 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Main Activity -->
+        </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true" /> <!-- Other Activities -->
+            android:name=".MainActivity2"
+            android:exported="true" />
         <activity
             android:name=".first"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
