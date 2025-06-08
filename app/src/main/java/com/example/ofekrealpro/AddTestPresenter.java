@@ -1,5 +1,8 @@
 package com.example.ofekrealpro;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class AddTestPresenter {
     private final AddTestView view;
     private final TestRepository repository;
@@ -19,6 +22,7 @@ public class AddTestPresenter {
         test.setName(testName);
         test.setDate(testDate);
         test.setStatus(testStatus);
+        test.setUserId(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
         // Save the test to the repository
         repository.saveTest(test, new TestRepository.SaveTestCallback() {

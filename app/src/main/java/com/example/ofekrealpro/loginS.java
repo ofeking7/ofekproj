@@ -65,7 +65,7 @@ public class loginS extends AppCompatActivity {
                             Toast.makeText(loginS.this, "Login successful!", Toast.LENGTH_SHORT).show();
 
                             // Navigate to home activity
-                            Intent intent = new Intent(loginS.this, HomeActivity.class);
+                            Intent intent = new Intent(loginS.this, MainActivity.class);
                             startActivity(intent);
                             finish(); // Close the login activity
                         } else {
@@ -83,8 +83,7 @@ public class loginS extends AppCompatActivity {
         // Check if user is signed in and update UI accordingly
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            // User is already signed in, go directly to home activity
-            Intent intent = new Intent(loginS.this, HomeActivity.class);
+            Intent intent = new Intent(loginS.this, MainActivity.class);
             startActivity(intent);
             finish();
         }

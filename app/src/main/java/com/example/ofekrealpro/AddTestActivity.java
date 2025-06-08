@@ -44,9 +44,6 @@ public class AddTestActivity extends AppCompatActivity implements AddTestPresent
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_test);
 
-        // Note: Firebase initialization is now handled in MyApplication class
-        // We've removed FirebaseApp.initializeApp(this) from here
-
         // Initialize the presenter
         presenter = new AddTestPresenter(this);
 

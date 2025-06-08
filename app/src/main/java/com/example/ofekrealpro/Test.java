@@ -6,6 +6,16 @@ public class Test {
     private String date;
     private String status;
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    private String userId;
+
     // Empty constructor required for Firestore
     public Test() {
     }

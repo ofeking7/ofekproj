@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@id/buttonPlaySong1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="16dp" />
+        />
 
     <Button
         android:id="@+id/buttonPlaySong3"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@id/buttonPlaySong2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="16dp" />
+        />
 
     <Button
         android:id="@+id/buttonStopwatch"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toBottomOf="@id/buttonPlaySong3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_margin="24dp" />
+         />
 
     <Button
         android:id="@+id/btnGoBack"
@@ -60,7 +60,7 @@
         android:text="⬅ Go Back"
         android:textColor="#333333"
         app:layout_constraintTop_toBottomOf="@id/buttonStopwatch"
-        app:layout_constraintTop_margin="32dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
